@@ -9,7 +9,9 @@
     "cra-template-typescript": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "sass": "^1.83.4",
+    "scss": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,5 +42,17 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.4.1",
     "prettier": "^3.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
