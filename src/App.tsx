@@ -1,12 +1,14 @@
-import React from "react";
 import "./App.css";
+import { ScrollTop } from "helpers/ScrollToTop";
+import { AppProps } from "types/interface";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">kjnkjnk</header>
-    </div>
-  );
+function App({ children }: AppProps) {
+	return (
+		<>
+			<ScrollTop />
+			{children}
+		</>
+	);
 }
 
 export default App;
