@@ -7,8 +7,8 @@ export const ScrollTop: React.FC = () => {
 	useEffect(() => {
 		window.scrollTo({
 			top: 0,
-			// behavior: "instant" as unknown as ScrollBehavior,
-			behavior: "instant" as "auto" | "smooth" | "instant",
+			behavior: "auto",
+			// behavior: "instant" as "auto" | "smooth" | "instant",
 		});
 	}, [pathname]);
 

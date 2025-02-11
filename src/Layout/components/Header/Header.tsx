@@ -8,13 +8,19 @@ const Header: React.FC = () => {
 		<>
 			<header className="header">
 				<div className="container-box">
-					<NavLink to="/">
-						<img
-							style={{ width: "200px", height: "80px", objectFit: "cover" }}
-							src={logo}
-							alt="logo"
-						/>
-					</NavLink>
+					<div className="flex items-center">
+						<NavLink to="/">
+							<img
+								style={{ width: "200px", height: "80px", objectFit: "cover" }}
+								src={logo}
+								alt="logo"
+							/>
+						</NavLink>
+						<div>
+							<span>Tashkent</span>
+							<span>+(998) 90 278-20-94</span>
+						</div>
+					</div>
 				</div>
 			</header>
 		</>
