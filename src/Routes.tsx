@@ -5,11 +5,11 @@ import App from "./App";
 import { Loading } from "components/Loading/Loading";
 import Layout from "Layout/Layout";
 
-// const Home = lazy(() => import("pages/Home/Home"));
+const Home = lazy(() => import("pages/Home/index"));
 const ErrorPage = lazy(() => import("pages/Error/index"));
 
 const routes = [
-	// { path: RoutesPath?.home, element: <Home /> },
+	{ path: RoutesPath?.home, element: <Home /> },
 	{ path: RoutesPath?.error, element: <ErrorPage /> },
 ];
 

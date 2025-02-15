@@ -17,10 +17,10 @@ function App({ children }: AppProps) {
 		console.log(test1);
 	}, [test1]);
 	return (
-		<>
+		<div className="flex flex-col">
 			<ScrollTop />
 			{children}
-		</>
+		</div>
 	);
 }
 
