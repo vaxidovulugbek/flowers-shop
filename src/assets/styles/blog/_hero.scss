@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 .slide-content {
     width: 100%;
-    height: 100svh;
+    min-height: 78svh;
+	max-height: 500px;
 
     img {
         width: 100%;
@@ -8,11 +10,40 @@
     }
 }
 
+.swiper {
+	min-height: 78svh;
+	max-height: 500px;
+	position: relative;
+}
+
+.swiper-text {
+	font-family: "Italiana", serif !important;
+	font-size: 67px;
+	color: #c105ff;
+	font-weight: 700;
+}
+
+.swiper-nav {
+	position: absolute;
+	top: 70px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 99;
+
+	&__list {
+		gap: 30px;
+	}
+}
+
 .custom-pagination {
 	display: flex;
 	justify-content: center;
 	gap: 8px;
-	margin-top: 15px;
+	position: absolute;
+	bottom: 20px !important;
+	left: 50% !important;
+	transform: translateX(-50%);
+	z-index: 99;
 }
 
 .custom-pagination .swiper-pagination-bullet {

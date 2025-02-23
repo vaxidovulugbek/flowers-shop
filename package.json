@@ -12,6 +12,7 @@
     "classnames": "^2.5.1",
     "cn": "^0.1.1",
     "cra-template-typescript": "1.2.0",
+    "framer-motion": "^12.4.7",
     "lazy": "^1.0.11",
     "lodash": "^4.17.21",
     "react": "^19.0.0",

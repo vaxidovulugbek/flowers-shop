@@ -4,7 +4,9 @@ import ProgressSwiper from "./Slider";
 function Hero() {
 	return (
 		<div className="hero">
-			<ProgressSwiper />
+			<div className="container-box">
+				<ProgressSwiper />
+			</div>
 		</div>
 	);
 }
