@@ -10,7 +10,12 @@ import banner1 from "assets/imgs/pexels-cottonbro-4270155.jpg";
 import banner2 from "assets/imgs/slider2.jpg";
 import banner3 from "assets/imgs/slider3.jpg";
 
-const texts = ["with flowers", "with gifts"];
+// Matnlar ikki qatordan iborat bo'lishi uchun "\n" bilan ajratilgan
+const texts = [
+	"Har bir tadbir uchun\najoyib buketlar",
+	"Hayotni gullar bilan\nbezating",
+	"Sevimli gullaringizni\ntanlang",
+];
 
 const letterVariant = {
 	hidden: {
@@ -34,33 +39,38 @@ const letterVariant = {
 };
 
 const AnimatedLetters: React.FC<{ text: string }> = ({ text }) => {
-	const letters = text.split("");
-
+	const lines = text.split("\n");
 	return (
-		<motion.div
-			initial="hidden"
-			animate="visible"
-			exit="hidden"
-			transition={{ staggerChildren: 0.07 }}
-			className="flex justify-center text-7xl tracking-wide"
-		>
-			{letters.map((letter, i) => (
-				<motion.span
-					key={i}
-					variants={letterVariant}
-					className="inline-block"
-					style={{ textShadow: "0px 4px 12px rgba(0,0,0,0.2)" }}
+		<div className="flex flex-col items-center">
+			{lines.map((line, index) => (
+				<motion.div
+					key={index}
+					initial="hidden"
+					animate="visible"
+					exit="hidden"
+					transition={{ staggerChildren: 0.07 }}
+					className="swiper-text flex justify-center tracking-wide"
 				>
-					{letter === " " ? "\u00A0" : letter}
-				</motion.span>
+					{line.split("").map((letter, i) => (
+						<motion.span
+							key={i}
+							variants={letterVariant}
+							className="inline-block"
+							style={{ textShadow: "0px 4px 12px rgba(0,0,0,0.2)" }}
+						>
+							{letter === " " ? "\u00A0" : letter}
+						</motion.span>
+					))}
+				</motion.div>
 			))}
-		</motion.div>
+		</div>
 	);
 };
 
 const HeroSlider: React.FC = () => {
 	const [textIndex, setTextIndex] = useState(0);
 
+	// Har 5 soniyada matn indeksini yangilash (autoplay)
 	useEffect(() => {
 		const timer = setInterval(() => {
 			setTextIndex((prev) => (prev + 1) % texts.length);
@@ -69,7 +79,7 @@ const HeroSlider: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="relative w-full h-screen">
+		<div className="relative w-full">
 			<Swiper
 				spaceBetween={0}
 				slidesPerView={1}
@@ -82,48 +92,32 @@ const HeroSlider: React.FC = () => {
 				modules={[Autoplay, Pagination, EffectFade]}
 				className="mySwiper"
 			>
-				<SwiperSlide>
-					<div className="relative h-screen">
-						<img src={banner1} alt="banner1" className="w-full h-full object-cover" />
-						<div className="absolute inset-0 bg-black/30" />
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<div className="relative h-screen">
-						<img src={banner2} alt="banner2" className="w-full h-full object-cover" />
-						<div className="absolute inset-0 bg-black/30" />
-					</div>
-				</SwiperSlide>
-				<SwiperSlide>
-					<div className="relative h-screen">
-						<img src={banner3} alt="banner3" className="w-full h-full object-cover" />
-						<div className="absolute inset-0 bg-black/30" />
-					</div>
-				</SwiperSlide>
+				{[banner1, banner2, banner3].map((banner, idx) => (
+					<SwiperSlide key={idx}>
+						<div className="relative h-screen">
+							<img
+								src={banner}
+								alt={`banner${idx + 1}`}
+								className="w-full h-full object-cover"
+							/>
+							{/* Qora overlay (yorqinlikni pasaytirish uchun) */}
+							{/* <div className="absolute inset-0 bg-black/30" /> */}
+						</div>
+					</SwiperSlide>
+				))}
 			</Swiper>
 
 			<nav className="swiper-nav">
-				<ul className="swiper-nav__list flex items-center">
+				<ul className="swiper-nav__list flex items-center text-white">
 					<li>Gullar</li>
 					<li>O`simliklar</li>
 					<li>Sovg`alar</li>
 					<li>Jurnal</li>
+					<li>Blog</li>
 				</ul>
 			</nav>
-			<motion.div
-				initial={{ opacity: 0, y: 50 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 1.5, delay: 0.5 }}
-				className="absolute top-1/4 left-1/2 z-[100] transform -translate-x-1/2 -translate-y-1/2 text-center"
-			>
-				{/* <p className="text-xl swiper-text text-white font-light tracking-[0.3em]">
-					FLOWERS & GIFTS
-				</p> */}
-			</motion.div>
-			<p className="swiper-text absolute top-[180px] left-1/2 z-[99] transform -translate-x-1/2 -translate-y-1/2 transform text-white text-center">
-				Biz hikoyalarni
-			</p>
-			<div className="swiper-text absolute top-[280px] left-1/2 z-[99] transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+
+			<div className="swiper-text absolute top-[190px] left-1/2 z-[99] transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
 				<AnimatePresence mode="wait">
 					<motion.div
 						key={texts[textIndex]}
@@ -137,7 +131,7 @@ const HeroSlider: React.FC = () => {
 				</AnimatePresence>
 			</div>
 
-			<div className="custom-pagination"></div>
+			{/* <div className="custom-pagination"></div> */}
 		</div>
 	);
 };
