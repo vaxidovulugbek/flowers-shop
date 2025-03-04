@@ -10,6 +10,23 @@
 		left: "50%";
 		bottom: 0;
 	}
+
+	&__btn {
+		position: absolute;
+		z-index: 99;
+		left: 50%;
+		top: 65%;
+		transform: translate(-50%, -50%);
+		color: #fff;
+		border: 1px solid #fff;
+		border-radius: 100px;
+		@include res('padding-top', 17px);
+		@include res('padding-bottom', 17px);
+		@include res('padding-left', 35px);
+		@include res('padding-right', 35px);
+		@include res('font-size', 16px);
+		text-transform: uppercase;
+	}
 }
 
 .slide-content {
@@ -32,6 +49,7 @@
 .swiper-text {
 	font-family: "Italiana", serif !important;
 	@include res('font-size', 66px);
+	@include res('bottom', 180px);
 	color: #fff;
 	font-weight: 700;
 }

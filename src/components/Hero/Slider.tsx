@@ -117,7 +117,7 @@ const HeroSlider: React.FC = () => {
 				</ul>
 			</nav>
 
-			<div className="swiper-text absolute top-[190px] left-1/2 z-[99] transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+			<div className="swiper-text absolute left-1/2 z-[99] transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
 				<AnimatePresence mode="wait">
 					<motion.div
 						key={texts[textIndex]}

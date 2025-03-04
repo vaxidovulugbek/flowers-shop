@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProgressSwiper from "./Slider";
+import { Button } from "ui/index";
 
 function Hero() {
 	const [offset, setOffset] = useState(0);
@@ -30,6 +31,7 @@ function Hero() {
 					zIndex: 10,
 				}}
 			></span>
+			<Button className="hero__btn" text="sotib olish" />
 		</div>
 	);
 }
