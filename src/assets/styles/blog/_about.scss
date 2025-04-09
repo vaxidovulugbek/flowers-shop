@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+.about {
+  @include res('padding-top', 320px);
+  @include res('padding-bottom', 220px);
+  
+  &__text {
+    @include res('width', 760px);
+    font-family: "Italiana", serif !important;
+    @include res('font-size', 40px);
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &__img {
+    @include res('width', 180px);
+    @include res('height', 180px);
+    margin: 10px auto;
+  }
+}
