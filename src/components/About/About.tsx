@@ -10,8 +10,14 @@ const About: React.FC = () => {
 	}, []);
 
 	return (
-		<section className="about" id="circle-section">
-			{/* <div className="circle"></div> */}
+		<section className="about relative overflow-hidden" id="circle-section">
+			<div
+				className="about__circle"
+				style={{
+					transform: `scale(${deg})`,
+					transition: "transform 0.1s linear",
+				}}
+			></div>
 			<div className="container-box">
 				<div className="about__img">
 					<img
