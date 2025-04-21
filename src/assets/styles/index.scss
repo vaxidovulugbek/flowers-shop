@@ -1,6 +1,7 @@
 
 body {
     font-family: 'Gilroy', sans-serif;
+    background: #fff;
 }
   
 @import "fonts";
@@ -9,3 +10,4 @@ body {
 @import "./blog/container";
 @import "./blog/hero";
 @import "./blog/about";
+@import "./blog/carusel";

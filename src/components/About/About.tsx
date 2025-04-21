@@ -26,8 +26,6 @@ const About: React.FC = () => {
 						style={{
 							transform: `rotate(${deg}deg)`,
 							transition: "transform 0.1s linear",
-							width: "200px",
-							height: "200px",
 						}}
 					/>
 				</div>

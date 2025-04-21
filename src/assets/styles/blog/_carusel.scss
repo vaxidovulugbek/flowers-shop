@@ -1,0 +1,65 @@
+.carusel {
+    @include res('width', 1140px);
+    margin: 0 auto;
+    position: relative;
+
+    &__cards {
+        display: flex;
+        gap: 30px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        width: 100%;
+        align-items: center;
+
+        &::-webkit-scrollbar {
+            height: 6px;
+            border-radius: 10px;
+            background-color: transparent;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: #e5e8d5;
+            border-radius: 10px;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+    }
+
+    &__card {
+        width: 300px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+
+        &-img {
+            @include res('width', 274px);
+            @include res('height', 274px);
+        }
+    }
+
+    &__btn {
+        @include res('width', 42px);
+        @include res('height', 42px);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background-color: #E5E8D5;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--left  { left: -25px; }
+        &--right { right: -25px; }
+    }
+
+    &:hover &__btn {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
