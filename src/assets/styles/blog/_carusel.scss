@@ -1,6 +1,9 @@
 .carusel {
     @include res('width', 1140px);
-    margin: 0 auto;
+    @include res('margin-top', 110px);
+    @include res('margin-bottom', 110px);
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
 
     &__cards {
@@ -61,5 +64,18 @@
     &:hover &__btn {
         opacity: 1;
         pointer-events: auto;
+    }
+
+    &__title {
+        font-family: "Italiana", serif !important;
+        @include res('font-size', 46px);
+        @include res('margin-bottom', 30px);
+    }
+
+    &__card-title {
+        font-family: "Italiana", serif !important;
+        @include res('font-size', 24px);
+        @include res('margin-bottom', 10px);
+        @include res('margin-top', 40px);
     }
 }

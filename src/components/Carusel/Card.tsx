@@ -1,6 +1,9 @@
 import React, { forwardRef } from "react";
+import { Title } from "ui/index";
 
-interface CardProps {}
+type CardProps = {
+	title?: string;
+};
 
 const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 	return (
@@ -10,6 +13,13 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 				src="https://fiore.vamtam.com/wp-content/uploads/2021/12/3-420x420.jpg"
 				alt=""
 			/>
+			{props.title && (
+				<Title
+					className="carusel__card-title text-center capitalize"
+					as="h4"
+					text={props.title}
+				/>
+			)}
 		</div>
 	);
 });
